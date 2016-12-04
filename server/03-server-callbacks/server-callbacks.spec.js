@@ -15,7 +15,13 @@ describe('the server-callbacks canary test', () => {
       lineCount('server/03-server-callbacks/line-count.js', null, receiveLineCount);
     });
 
-    it('for file —— is-not-there.js —— should be cannot open file: is-not-there.js');
+    it('for file —— is-not-there.js —— should be cannot open file: is-not-there.js', done => {
+      const receiveError = message => {
+        message.should.equal('cannot open file: is-not-there.js');
+        done();
+      };
 
+      lineCount('is-not-there.js', receiveError);
+    });
   });
 });
