@@ -3,9 +3,7 @@ var webpack = require('webpack');
 module.exports = function(config) {
   config.set({
     webpack: {
-      coverageReporter: {
-        type: 'text'
-      },
+      devtool: 'inline-source-map',
 
       module: {
         loaders: [
@@ -13,7 +11,10 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             loader: 'babel',
-            exclude: [/web\/node_modules/, /server/]
+            exclude: [/node_modules/, /server/],
+            query: {
+              plugins: ['istanbul']
+            }
           },
         ]
       },
@@ -23,8 +24,16 @@ module.exports = function(config) {
       {pattern: 'spec.bundle.js', watched: false}
     ],
 
+    coverageReporter: {
+      dir : 'coverage/',
+      reporters:[
+          {type : 'lcov'},
+          {type : 'text'}
+      ]
+    },
+
     preprocessors: {
-      './spec.bundle.js': ['webpack']
+      'spec.bundle.js': ['webpack', 'sourcemap']
     },
 
     webpackServer: {
@@ -40,7 +49,7 @@ module.exports = function(config) {
     frameworks: ['mocha', 'should'],
     logLevel: config.LOG_INFO,
     port: 9876,
-    reporters: ['mocha', 'growl'],
+    reporters: ['mocha', 'growl', 'coverage'],
     singleRun: false
   });
 };
