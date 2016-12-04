@@ -30,5 +30,7 @@ describe('the palindrome canary test', () => {
     it('no for whitespace only phrase', () => {
       isPalindrome('   ').should.equal(false);
     });
+
+    it('no argument exception');
   });
 });
