@@ -3,7 +3,10 @@ describe('the palindrome canary test', () => {
     true.should.equal(true);
   });
 
-  const isPalindrome = phrase => phrase.split('').reverse().join('') === phrase;
+  const isPalindrome = phrase => {
+    if (phrase === '') return false;
+    return phrase.split('').reverse().join('') === phrase;
+  };
 
   describe('palindrome should be', () => {
     it('yes for mom', () => {
@@ -22,7 +25,10 @@ describe('the palindrome canary test', () => {
       isPalindrome('mom dad').should.equal(false);
     });
 
-    it('no for empty phrase');
+    it('no for empty phrase', () => {
+      isPalindrome('').should.equal(false);
+    });
+
     it('no for whitespace only phrase');
   });
 });
