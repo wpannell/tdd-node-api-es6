@@ -9,6 +9,7 @@ describe('the server-callbacks canary test', () => {
     it('13', done => {
       const receiveLineCount = numberOfLines => {
         numberOfLines.should.equal(13);
+        done();
       };
 
       lineCount('server/03-server-callbacks/line-count.js', null, receiveLineCount);
