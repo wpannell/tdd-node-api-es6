@@ -12,7 +12,7 @@ describe('the server-callbacks canary test', () => {
         done();
       };
 
-      lineCount('server/03-line-count/line-count.js', null, receiveLineCount);
+      lineCount('server/03-line-count-with-callback/line-count.js', null, receiveLineCount);
     });
 
     it('for file —— is-not-there.js —— should be problem reading file: is-not-there.js', done => {
