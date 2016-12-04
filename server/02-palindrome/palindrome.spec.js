@@ -10,7 +10,6 @@ describe('the palindrome canary test', () => {
       isPalindrome('mom').should.equal(true);
     });
 
-    it('yes for dad');
     it('no for dude');
     it('yes for mom mom');
     it('no for mom dad');
