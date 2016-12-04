@@ -10,7 +10,10 @@ describe('the palindrome canary test', () => {
       isPalindrome('mom').should.equal(true);
     });
 
-    it('no for dude');
+    it('no for dude', () => {
+      isPalindrome('dude').should.equal(false);
+    });
+
     it('yes for mom mom');
     it('no for mom dad');
     it('no for empty phrase');
