@@ -12,5 +12,8 @@ describe('fahrenheit2celsius should', () => {
     expected.should.equal(0);
   });
 
-  it('give 10°C for 50°F');
+  it('give 10°C for 50°F', () => {
+    const expected = fahrenheit2celsius(50);
+    expected.should.equal(10);
+  });
 });
