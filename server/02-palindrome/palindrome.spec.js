@@ -3,8 +3,12 @@ describe('the palindrome canary test', () => {
     true.should.equal(true);
   });
 
-  const isPalindrome = phrase => phrase.trim().length > 0 &&
-      phrase.split('').reverse().join('') === phrase;
+  const isPalindrome = phrase => {
+    if(phrase === undefined) throw new Error('no argument exception');
+
+    return phrase.trim().length > 0 &&
+        phrase.split('').reverse().join('') === phrase;
+  };
 
   describe('palindrome should be', () => {
     it('yes for mom', () => {
