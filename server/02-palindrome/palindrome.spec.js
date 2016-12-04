@@ -31,6 +31,8 @@ describe('the palindrome canary test', () => {
       isPalindrome('   ').should.equal(false);
     });
 
-    it('no argument exception');
+    it('no argument exception', () => {
+      (() => { isPalindrome(); }).should.throw('no argument exception');
+    });
   });
 });
