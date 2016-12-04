@@ -4,7 +4,7 @@ describe('the palindrome canary test', () => {
   });
 
   const isPalindrome = phrase => {
-    if(phrase === undefined) throw new Error('no argument exception');
+    if (typeof phrase === 'undefined') throw new Error('no argument exception');
 
     return phrase.trim().length > 0 &&
         phrase.split('').reverse().join('') === phrase;
