@@ -4,7 +4,10 @@ describe('the palindrome canary test', () => {
   });
 
   describe('palindrome should be', () => {
-    it('yes for mom');
+    it('yes for mom', () => {
+      isPalindrome('mom').should.equal(true);
+    });
+
     it('yes for dad');
     it('no for dude');
     it('yes for mom mom');
