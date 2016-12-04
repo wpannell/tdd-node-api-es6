@@ -3,7 +3,7 @@ describe('the palindrome canary test', () => {
     true.should.equal(true);
   });
 
-  const isPalindrome = phrase => true;
+  const isPalindrome = phrase => phrase.split('').reverse().join('') === phrase;
 
   describe('palindrome should be', () => {
     it('yes for mom', () => {
