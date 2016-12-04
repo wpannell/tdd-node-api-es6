@@ -3,6 +3,8 @@ describe('the palindrome canary test', () => {
     true.should.equal(true);
   });
 
+  const isPalindrome = phrase => true;
+
   describe('palindrome should be', () => {
     it('yes for mom', () => {
       isPalindrome('mom').should.equal(true);
