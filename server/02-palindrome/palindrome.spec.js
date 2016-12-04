@@ -4,7 +4,7 @@ describe('the palindrome canary test', () => {
   });
 
   const isPalindrome = phrase => {
-    if (phrase === '') return false;
+    if (phrase.trim() === '') return false;
     return phrase.split('').reverse().join('') === phrase;
   };
 
@@ -29,6 +29,8 @@ describe('the palindrome canary test', () => {
       isPalindrome('').should.equal(false);
     });
 
-    it('no for whitespace only phrase');
+    it('no for whitespace only phrase', () => {
+      isPalindrome('   ').should.equal(false);
+    });
   });
 });
