@@ -5,8 +5,8 @@ describe('the server-callbacks canary test', () => {
     true.should.equal(true);
   });
 
-  describe('line count for file —— line-count.js —— should be', () => {
-    it('13', done => {
+  describe('line count', () => {
+    it('for file —— line-count.js —— should be 13', done => {
       const receiveLineCount = numberOfLines => {
         numberOfLines.should.equal(13);
         done();
