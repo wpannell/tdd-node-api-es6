@@ -4,7 +4,7 @@ describe('the fahrenheit2celsius canary test', () => {
   });
 });
 
-const fahrenheit2celsius = () => 0;
+const fahrenheit2celsius = fahrenheit => (fahrenheit -32) * 5 / 9;
 
 describe('fahrenheit2celsius should', () => {
   it('give 0°C for 32°F', () => {
