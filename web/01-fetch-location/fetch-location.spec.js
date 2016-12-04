@@ -11,8 +11,10 @@ describe('the fetch-location canary test', () => {
         window.console.log(location);
         location.should.have.property('lat');
         location.should.have.property('long');
+        done();
       };
 
+      this.timeout(10000);
       fetchLocation(onSuccess);
     });
   });
