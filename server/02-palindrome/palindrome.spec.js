@@ -14,8 +14,14 @@ describe('the palindrome canary test', () => {
       isPalindrome('dude').should.equal(false);
     });
 
-    it('yes for mom mom');
-    it('no for mom dad');
+    it('yes for mom mom', () => {
+      isPalindrome('mom mom').should.equal(true);
+    });
+
+    it('no for mom dad', () => {
+      isPalindrome('mom dad').should.equal(false);
+    });
+
     it('no for empty phrase');
     it('no for whitespace only phrase');
   });
