@@ -13,6 +13,7 @@ git clone git@github.com:wpannell/tdd-node-api-es6.git
 cd tdd-node-api-es6
 npm install
 npm run lint
+npm run spec
 npm test
 ````
 
