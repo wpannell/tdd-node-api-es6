@@ -11,6 +11,7 @@ describe('the line-count-with-promise canary test', () => {
     it('with the done parameter like with callback', done => {
       const receiveCount = count => {
         count.should.equal(13);
+        done();
       };
 
       lineCount(filespec).then(receiveCount);
