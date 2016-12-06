@@ -17,7 +17,14 @@ describe('the line-count-with-promise canary test', () => {
       lineCount(filespec).then(receiveCount);
     });
 
-    it('by returning the promise after .then');
+    it('by returning the promise after .then', () => {
+      const receiveCount = count => {
+        count.should.equal(13);
+        done();
+      };
+
+      return lineCount(filespec).then(receiveCount);
+    });
 
     it('by using eventually or fulfilledWith');
   });
