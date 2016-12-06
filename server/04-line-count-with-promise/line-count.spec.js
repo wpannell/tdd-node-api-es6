@@ -26,7 +26,7 @@ describe('the line-count-with-promise canary test', () => {
     });
 
     it('by using eventually or fulfilledWith', () => {
-      return lineCount(filespec).should.eventually.equal(12);
+      return lineCount(filespec).should.eventually.equal(13);
     });
   });
 });
