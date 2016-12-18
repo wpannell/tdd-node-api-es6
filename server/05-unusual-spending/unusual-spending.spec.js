@@ -1,26 +1,29 @@
 import td from 'testdouble';
 
 describe('unusual spending should', function() {
-  it('interact with fetch, high-spending and notify', function(done) {
-    const fetch = td.replace('./fetch').fetch;
-    const categorize = td.replace('./categorize').categorize;
-    const notify = td.replace('./notify').notify;
+  it('verify the basic test infrastructure', () => {
+    true.should.equal(true);
+  });
 
-    let unusualSpending;
+  it('handle success case of notifying user of high spending values', () => {
+    const fetch = td.replace('./fetch').fetch,
+      categorize = td.replace('./categorize').categorize,
+      notify = td.replace('./notify').notify,
+      userId = 32;
 
-    td.when(fetch('dummy-user-id')).thenResolve('dummy-payments-response');
+    let unusualSpending = require('./unusual-spending').unusualSpending;
 
-    td.when(categorize('dummy-payments-response')).thenReturn(
-        'dummy-categorized-payments');
+    td.when(fetch(userId)).thenResolve('payment-info');
+    td.when(categorize('payment-info')).thenReturn('categorized-info');
 
-    unusualSpending = require('./unusual-spending.js').unusualSpending;
-
-    const receiveCategorizedPayments = categorizedPayments => {
-      categorizedPayments.should.equal('dummy-categorized-payments');
-      td.verify(notify('dummy-user-id', 'dummy-categorized-payments'));
-      done();
+    let categorizedPayments = () => {
+      td.verify(notify(userId, 'categorized-info'));
     };
 
-    unusualSpending('dummy-user-id').then(receiveCategorizedPayments);
+    unusualSpending(userId).then(categorizedPayments);
+  });
+
+  after(() => {
+    td.reset();
   });
 });

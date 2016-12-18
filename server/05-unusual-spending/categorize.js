@@ -1,2 +1,5 @@
-const categorize = () => {};
+const categorize = () => {
+
+};
+
 export {categorize};
