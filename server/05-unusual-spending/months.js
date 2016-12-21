@@ -1,6 +1,4 @@
-const months = {
-  thisMonth: () => new Date().getMonth() + 1,
-  lastMonth: () => new Date().getMonth()
-};
+const thisMonth = () => {};
+const lastMonth = () => {};
 
-export { months };
+export {thisMonth, lastMonth};
