@@ -1,4 +1,6 @@
-const thisMonth = () => {};
-const lastMonth = () => {};
+const thisMonth = () => {
+};
+const lastMonth = () => {
+};
 
-export {thisMonth, lastMonth};
+export { thisMonth, lastMonth };
